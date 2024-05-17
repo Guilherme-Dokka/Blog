@@ -13,11 +13,6 @@ const Header = () => {
           <ul className="menu">
             <li>
               <a href="" className="p-1">
-                Categorias
-              </a>
-            </li>
-            <li>
-              <a href="" className="p-1">
                 Sobre
               </a>
             </li>
@@ -52,11 +47,6 @@ const Header = () => {
       <div className="relative">
         <div className="menu-mobile">
           <ul className="nav-mobile">
-            <li>
-              <a href="#" className="link-menu-mobile">
-                Categorias
-              </a>
-            </li>
             <li>
               <a href="#" className="link-menu-mobile">
                 Sobre
