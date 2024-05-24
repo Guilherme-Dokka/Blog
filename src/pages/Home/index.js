@@ -1,4 +1,4 @@
-import Bunner from "./Banner";
+import Banner from "./Banner";
 import Card from "./Card";
 import Hero from "./Hero";
 import Main from "./Main";
@@ -11,7 +11,7 @@ import api from "services/api";
 const Home = () => {
   const [main, setMain] = useState([]);
   const [mostseen, setmostseen] = useState([]);
-  const [Banner, setBanner] = useState([]);
+  const [banner, setBanner] = useState([]);
 
   useEffect(() => {
     api.get("/posts?star=5&_limit=2").then((result) => {
@@ -64,12 +64,15 @@ const Home = () => {
         <section className="container">
           <h3 className="ml-2 mb-3">Mais vistos</h3>
           <div className="row">
-            <Card />
-            <Card />
-            <Card />
+            {mostseen.map((item) => {
+              return <Card key={item.id} content={item} />;
+            })}
           </div>
         </section>
       </div>
+      {banner.map((item) => {
+        return <Banner key={item.id} content={item} />;
+      })}
     </>
   );
 };
