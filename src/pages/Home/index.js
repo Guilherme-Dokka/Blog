@@ -2,11 +2,15 @@ import Banner from "./Banner";
 import Card from "./Card";
 import Hero from "./Hero";
 import Main from "./Main";
-
+import Header from "pages/Header";
+import Footer from "pages/Footer";
 import star from "svg/icon-star.svg";
 
 import { useState, useEffect } from "react";
 import api from "services/api";
+
+import { Link } from "react-router-dom";
+
 
 const Home = () => {
   const [main, setMain] = useState([]);
@@ -28,6 +32,7 @@ const Home = () => {
 
   return (
     <>
+      <Header />
       <Hero />
 
       <section className="container">
@@ -73,6 +78,7 @@ const Home = () => {
       {banner.map((item) => {
         return <Banner key={item.id} content={item} />;
       })}
+      <Footer />
     </>
   );
 };
