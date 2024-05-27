@@ -1,4 +1,3 @@
-{
 
 "Blog":
 	
@@ -21,7 +20,7 @@
 		
   
 	
-  "start projeto":
+  "start project":
 	
     [{
 		
@@ -31,6 +30,5 @@
 		
     }]
   
-	
 }
 
