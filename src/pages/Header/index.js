@@ -1,7 +1,30 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "svg/blog-logo.svg";
 
+import { useState} from "react";
+import Search from "pages/Search";
+
 const Header = () => {
+  const initialValueForm = {
+    search: "",
+  };
+
+  const [form, setForm ] = useState(initialValueForm);
+
+  const navigate = useNavigate()
+
+  function onChange(event) {
+    const { value, name } = event.target;
+
+    setForm({...form, [name]: value });
+
+    //console.log(form);
+  }
+
+  function handleSearch(e) {
+    e.preventDefault();
+    navigate(`/Search/${form.search}`)
+  }
   return (
     <>
       <header className="py-1 px-2">
@@ -27,8 +50,14 @@ const Header = () => {
         <div className="bx"></div>
         <div className="flex-start-row">
           <div className="search">
-            <form className="flex">
-              <input type="text" name="search" id="" placeholder="Buscar..." />
+            <form className="flex" onSubmit={handleSearch}>
+              <input
+                type="text"
+                name="search"
+                id=""
+                placeholder="Buscar..."
+                onChange={onChange}
+              />
               <button className="btn-search"></button>
             </form>
           </div>
