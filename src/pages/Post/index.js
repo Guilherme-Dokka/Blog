@@ -8,10 +8,12 @@ import { useState, useEffect } from "react";
 
 import api from "services/api";
 const Post = () => {
+
   const { idPost } = useParams();
 
   const [post, setPost] = useState([]);
   const [user, setUser] = useState([]);
+  
   useEffect(() => {
     if (idPost) {
       api.get("/posts/" + idPost).then((response) => {
