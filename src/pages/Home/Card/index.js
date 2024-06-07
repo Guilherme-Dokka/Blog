@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import img from "../../../img/not image.webp";
 
 const Card = ({ content }) => {
   return (
@@ -6,7 +7,7 @@ const Card = ({ content }) => {
       <div className="grid-4 card hidden p-0">
         <div className="thumb hidden">
           <Link to={"/post/" + content.id} className="p-0">
-            <img src="img/01.png" alt="" />
+            <img src={img} alt="" />
           </Link>
         </div>
         <div className="p-2">

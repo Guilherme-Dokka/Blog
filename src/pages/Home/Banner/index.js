@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
-
+import img from "../../../img/not image.webp";
 const Banner = ({ content }) => {
   return (
     <>
       <section className="container">
         <div className="img-banner hidden">
-          <img src="img/05.png" alt="" />
+          <img src={img} alt="" className="image" />
         </div>
         <div className="row mt-3">
           <h6 className="color-gray text-center">{content.date}</h6>

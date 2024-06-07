@@ -1,28 +1,26 @@
 import Header from "pages/Header";
 import Footer from "pages/Footer";
 import imgProfile from "img/profile/ny.jpg";
-import imgBanner from "img/05.png";
+import img from "img/not image.webp";
 
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 import api from "services/api";
 const Post = () => {
-
   const { idPost } = useParams();
 
   const [post, setPost] = useState([]);
   const [user, setUser] = useState([]);
-  
+
   useEffect(() => {
     if (idPost) {
       api.get("/posts/" + idPost).then((response) => {
         setPost(response.data);
 
-        api.get("/user/" + response.data.id_user)
-        .then((response) =>{
-          setUser(response.data)
-        })
+        api.get("/user/" + response.data.id_user).then((response) => {
+          setUser(response.data);
+        });
       });
     }
   }, []);
@@ -39,21 +37,21 @@ const Post = () => {
             <img src={imgProfile} className="profile-img" alt="" />
           </div>
           <div className="ml-2">
-            <h6 className="color-primary">{user.name} {user.surname}</h6>
+            <h6 className="color-primary">
+              {user.name} {user.surname}
+            </h6>
             <h6 className="color-gray">{user.user}</h6>
           </div>
-          <p className="ml-4">{post.date} - {postMessage.duration}</p>
+          <p className="ml-4">
+            {post.date} - {postMessage.duration}
+          </p>
         </div>
-
-        <div className="img-banner hidden">
-          
-        </div>
+        <img src={img} alt="" className="image" />
+        <div className="img-banner hidden"></div>
 
         <div className="row my-3">
           <h4>{post.title}</h4>
-          <p className="mt-1">
-            {post.content}
-          </p>
+          <p className="mt-1">{post.content}</p>
         </div>
 
         <div className="row">
@@ -61,16 +59,14 @@ const Post = () => {
           <div className="grid-6 card">
             <div className="row">
               <div className="grid-3 flex-center pl-1">
-                <div className="profile-big">
-                  
-                </div>
+                <div className="profile-big"></div>
               </div>
               <div className="grid-9">
-                <h6 className="color-primary">{user.name} {user.surname}</h6>
+                <h6 className="color-primary">
+                  {user.name} {user.surname}
+                </h6>
                 <h6 className="color-gray">{user.user}</h6>
-                <p className="mt-1">
-                 {user.description}
-                </p>
+                <p className="mt-1">{user.description}</p>
               </div>
             </div>
           </div>
